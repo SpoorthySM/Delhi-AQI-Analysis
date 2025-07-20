@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 5))
+plt.plot(df['date'], df['aqi'], marker='o', linestyle='-', color='purple')
+plt.title('Mock AQI Over Time')
+plt.xlabel('Date')
+plt.ylabel('AQI')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()

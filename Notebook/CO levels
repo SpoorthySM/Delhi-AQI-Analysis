@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+# Load data
+df = pd.read_csv('delhiaqi.csv')
+
+# Convert date
+df['date'] = pd.to_datetime(df['date'])
+df = df.sort_values(by='date')
+
+# Create visuals folder if it doesn't exist
+os.makedirs('visuals', exist_ok=True)
+
+# Plot
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=df, x='date', y='co', marker='o', color='orange')
+plt.title('Delhi CO Levels Over Time')
+plt.xlabel('Date')
+plt.ylabel('CO (Carbon Monoxide)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('visuals/delhi_co_over_time.png')  # Save the plot
+plt.show()

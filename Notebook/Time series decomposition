@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+# Step 1: Convert to datetime
+df['date'] = pd.to_datetime(df['date'])
+
+# Step 2: Set as index
+df.set_index('date', inplace=True)
+
+# Step 3: Sort by date
+df.sort_index(inplace=True)
+
+# Step 4: OPTIONAL - Calculate average AQI if not already present
+df['aqi'] = df[['co', 'no', 'no2', 'o3', 'so2', 'pm2_5', 'pm10', 'nh3']].mean(axis=1)
+
+# Step 5: Decompose AQI trend
+result = seasonal_decompose(df['aqi'], model='additive', period=12)
+
+# Step 6: Plot the decomposition
+result.plot()
+plt.tight_layout()
+plt.show()

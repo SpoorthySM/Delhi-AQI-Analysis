@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Select only numeric columns (pollutants)
+pollutants = df.select_dtypes(include='number')
+
+# Compute correlation matrix
+corr_matrix = pollutants.corr()
+
+# Set up the matplotlib figure
+plt.figure(figsize=(10, 8))
+
+# Draw the heatmap with Seaborn
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5, fmt=".2f")
+
+# Titles and layout
+plt.title('Correlation Heatmap of Air Pollutants in Delhi', fontsize=14)
+plt.tight_layout()
+
+# Show it
+plt.show()
