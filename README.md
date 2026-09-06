@@ -1,4 +1,4 @@
-# Delhi AQI Analysis Dashboard 🌫️
+# Delhi AQI Analysis Dashboard 
 
 An interactive air quality analysis dashboard built with Python and Streamlit, 
 analysing Delhi's pollution data across 8 pollutants with multi-filter 
