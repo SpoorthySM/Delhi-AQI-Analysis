@@ -12,7 +12,7 @@ st.title("🌫️ Delhi Air Quality Index (AQI) Dashboard")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("/Users/spoorthy/Desktop/Delhi-aqi-analysis/Data/delhiaqi.csv")  # Make sure the path is correct
+    df = pd.read_csv("Data/delhiaqi.csv") # Make sure the path is correct
     df['date'] = pd.to_datetime(df['date'])
     df['month'] = df['date'].dt.strftime('%B')
     df['year'] = df['date'].dt.year
